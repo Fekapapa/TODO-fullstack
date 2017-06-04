@@ -58,8 +58,9 @@ var BackendServer = (function() {
 
     function postTodoData(app, conn) {
         app.post ('/todo_data_post', function(req, res) {
-            var query = 'INSERT INTO todo_data (title, status) VALUES ("'
-             + req.body.title + '", "' + 0 + '")';
+            var query = 'INSERT INTO todo_data (title, status) VALUES ('
+             + req.body.title + ', ' + 0 + ')';
+            console.log(query);
             conn.query(query), function(err,rows){
             };
         });
